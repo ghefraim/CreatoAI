@@ -1,12 +1,22 @@
-import { FC } from 'react';
+import React, { useState } from 'react';
+import LoadingPage from './LoadingPage'; // Import LoadingPage component
+import TemplateSelectionPage from './TemplateSelectionPage'; // Import TemplateSelectionPage component
 
-import './style.css';
+const App: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState('loading');
 
-export const App: FC<{ name: string }> = ({ name }) => {
+  // Function to switch pages
+  const goToTemplateSelection = () => setCurrentPage('templateSelection');
+
   return (
     <div>
-      <h1>Hello {name}!</h1>
-      <p>Start editing to see some magic happen :)</p>
+      {currentPage === 'loading' ? (
+        <LoadingPage goToTemplateSelection={goToTemplateSelection} />
+      ) : (
+        <TemplateSelectionPage />
+      )}
     </div>
   );
-};
+}
+
+export default App;
