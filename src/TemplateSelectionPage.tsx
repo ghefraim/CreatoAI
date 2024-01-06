@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import { SelectionContainer, Title, Template, SelectButton, SliderContainer, TemplateSlider } from './TemplateSelectionStyles';
 
-const TemplateSelectionPage: React.FC = () => {
-    // Settings for the slider
+interface TemplateSelectionPageProps {
+  onTemplateSelect: (template: string) => void;
+}
+
+const TemplateSelectionPage: React.FC<TemplateSelectionPageProps> = ({ onTemplateSelect }) => {
+    const [currentTemplate, setCurrentTemplate] = useState<string>('instagram');
+
     const settings = {
         dots: true,
         infinite: false,
@@ -12,7 +17,12 @@ const TemplateSelectionPage: React.FC = () => {
         slidesToScroll: 1,
         centerMode: true,
         variableWidth: false,
-        adaptiveHeight: false
+        adaptiveHeight: false,
+        beforeChange: (oldIndex: number, newIndex: number) => {
+            // Assuming the order of your templates matches the order of slides
+            const templateNames = ['instagram', 'twitter', 'story'];
+            setCurrentTemplate(templateNames[newIndex]);
+        }
     };
 
     return (
@@ -25,7 +35,7 @@ const TemplateSelectionPage: React.FC = () => {
                     <Template className="story">Story (1080 x 1920px)</Template>
                 </Slider>
             </SliderContainer>
-            <SelectButton>Select</SelectButton>
+            <SelectButton onClick={() => onTemplateSelect(currentTemplate)}>SELECT</SelectButton>
         </SelectionContainer>
     );
 }

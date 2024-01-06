@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const SelectionContainer = styled.div`
-    background-color: #1a1a1a; // Dark background
-    color: #fff; // White text
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -21,22 +19,23 @@ export const Title = styled.h1`
 `;
 
 export const SliderContainer = styled.div`
-    // Removed flex-grow as it might stretch the container, affecting centering
     width: 100%;
     .slick-slider {
         margin: 0 auto; // Center the slider
     }
 `;
 
-// Rest of your styled components...
-
 export const SelectButton = styled.button`
     position: absolute;
-    bottom: 20px; // Position at the bottom with some spacing
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
-    // Rest of the button styles...
+    
+    background-color: #264b85;
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
 `;
 
 
@@ -49,12 +48,13 @@ export const Template = styled.div`
     text-align: center;
 
     // Reduce opacity for non-focused items
-    opacity: 0.5;
+    // this doesn't work ^
+    // opacity: 0.5;
 
     // Increase opacity for focused item
-    &.slick-center {
-        opacity: 1;
-    }
+    // .slick-current {
+    //     opacity: 1;
+    // }
 `;
 
 export const TemplateSlider = styled.div`
@@ -80,14 +80,3 @@ export const TemplateSlider = styled.div`
 
     // ... rest of your TemplateSlider styles
 `;
-
-// export const SelectButton = styled.button`
-//     // Ensure the button is visible
-//     position: relative; // Adjust if needed based on your layout
-//     z-index: 2; // Make sure it's above the slider
-//     position: absolute;
-//     bottom: 20px; // Position the button at the bottom
-//     left: 50%;
-//     transform: translateX(-50%);
-//     z-index: 2; // Ensure it's above other elements
-// `;

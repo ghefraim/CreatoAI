@@ -7,13 +7,19 @@
 
 body {
   margin: 0;
-  padding: 1rem;
+  padding: 0;
   font-family: system-ui, sans-serif;
-  color: black;
-  background-color: white;
+  color: #dadada;
+  background-color: #28292c;
 }
 
 h1 {
   font-weight: 800;
   font-size: 1.5rem;
+}
+.slick-slide {
+  opacity: 0.2;
+}
+.slick-current {
+  opacity: 1;
 }

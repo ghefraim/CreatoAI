@@ -16,7 +16,7 @@ const LoadingPage: React.FC<LoadingPageProps> = ({ goToTemplateSelection }) => {
 
     return (
         <LoadingContainer>
-            <Logo>CreatoAI</Logo>
+            <Logo>Creato<span>AI</span></Logo>
         </LoadingContainer>
     );
 }
